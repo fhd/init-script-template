@@ -7,7 +7,8 @@ status commands.
 Getting started
 ---------------
 
-Just set the following variables and you're ready to go:
+Just rename _template_ to something meaningful, set the following
+variables and you're ready to go:
 
 ### dir
 
