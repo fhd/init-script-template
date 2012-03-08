@@ -1,0 +1,58 @@
+#!/bin/sh
+
+dir=""
+user=""
+cmd=""
+
+name=`basename $0`
+pid_file="/var/run/$name.pid"
+stdout_log="/var/log/$name.log"
+stderr_log="/var/log/$name.err"
+
+get_pid() {
+    cat "$pid_file"    
+}
+
+is_running() {
+    [ -f "$pid_file" ] && ps `get_pid` &>/dev/null
+}
+
+case "$1" in
+    start)
+	if is_running; then
+	    echo "Already started"
+	else
+	    echo "Starting $name"
+	    cd "$dir"
+            sudo -u "$user" $cmd > "$stdout_log" 2> "$stderr_log" \
+		& echo $! > "$pid_file"
+	    if ! is_running; then
+		echo "Unable to start, see $stdout_log and $stderr_log"
+		exit 1
+	    fi
+	fi
+	;;
+    stop)
+	if is_running; then
+	    echo "Stopping $name"
+	    kill `get_pid`
+	    rm "$pid_file"
+	else
+	    echo "Not running"
+	fi
+	;;
+    status)
+	if is_running; then
+	    echo "Running"
+	else
+	    echo "Stopped"
+	    exit 1
+	fi
+	;;
+    *)
+	echo "Usage: $0 {start|stop|status}"
+	exit 1
+	;;
+esac
+
+exit 0
