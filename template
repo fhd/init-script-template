@@ -41,6 +41,10 @@ case "$1" in
 	    echo "Not running"
 	fi
 	;;
+    restart)
+	$0 stop
+	$0 start
+	;;
     status)
 	if is_running; then
 	    echo "Running"
@@ -50,7 +54,7 @@ case "$1" in
 	fi
 	;;
     *)
-	echo "Usage: $0 {start|stop|status}"
+	echo "Usage: $0 {start|stop|restart|status}"
 	exit 1
 	;;
 esac

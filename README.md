@@ -1,8 +1,8 @@
 System V init script template
 =============================
 
-A simple template for init scripts that provide the start, stop and
-status commands.
+A simple template for init scripts that provide the start, stop,
+restart and status commands.
 
 Handy for [Node.js](http://http://nodejs.org/) apps and everything
 else that runs itself.
@@ -46,6 +46,12 @@ Starts the app.
 Stops the app.
 
     /etc/init.d/algorithms stop
+
+### Restart ###
+
+Restarts the app.
+
+    /etc/init.d/algorithms restart
 
 ### Status ###
 
