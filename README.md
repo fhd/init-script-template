@@ -10,8 +10,11 @@ else that runs itself.
 Getting started
 ---------------
 
-Just rename _template_ to something meaningful, set the following
-three variables and you're ready to go:
+Copy _template_ to /etc/init.d and rename it to something
+meaningful. Then edit the script and enter that name after _Provides:_
+(between _### BEGIN INIT INFO_ and _### END INIT INFO_).
+
+Now set the following three variables in the script:
 
 ### dir ###
 
