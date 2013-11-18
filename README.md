@@ -69,3 +69,12 @@ Logging
 By default, standard output goes to _/var/log/scriptname.log_ and
 error output to _/var/log/scriptname.err_. If you're not happy with
 that, change the variables `stdout_log` and `stderr_log`.
+
+Automatic Startup
+------------------
+Continuing the above example, to have the service start automatically when the system starts, you can register it as follows:
+
+sudo chmod +x /etc/init.d/algorithms
+sudo update-rc.d algorithms defaults
+
+
