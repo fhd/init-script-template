@@ -74,7 +74,7 @@ Automatic Startup
 ------------------
 Continuing the above example, to have the service start automatically when the system starts, you can register it as follows:
 
-sudo chmod +x /etc/init.d/algorithms
-sudo update-rc.d algorithms defaults
+    sudo chmod +x /etc/init.d/algorithms
+    sudo update-rc.d algorithms defaults
 
 
