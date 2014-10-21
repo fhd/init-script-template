@@ -69,3 +69,11 @@ Logging
 By default, standard output goes to _/var/log/scriptname.log_ and
 error output to _/var/log/scriptname.err_. If you're not happy with
 that, change the variables `stdout_log` and `stderr_log`.
+
+License
+-------
+
+Copyright (C) 2012-2014 Felix H. Dahlke
+
+This is open source software, licensed under the MIT License. See the
+file LICENSE for details.
