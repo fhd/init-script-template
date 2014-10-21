@@ -1,6 +1,6 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          
+# Provides:
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
@@ -19,7 +19,7 @@ stdout_log="/var/log/$name.log"
 stderr_log="/var/log/$name.err"
 
 get_pid() {
-    cat "$pid_file"    
+    cat "$pid_file"
 }
 
 is_running() {
@@ -50,12 +50,12 @@ case "$1" in
             if ! is_running; then
                 break
             fi
-            
+
             echo -n "."
             sleep 1
         done
         echo
-        
+
         if is_running; then
             echo "Not stopped; may still be shutting down or shutdown may have failed"
             exit 1
