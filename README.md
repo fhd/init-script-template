@@ -63,6 +63,14 @@ otherwise.
 
     /etc/init.d/algorithms status
 
+
+Run on boot
+-----------
+
+one way to autostart the script at boot time is to use update-rc.d:
+
+    sudo update-rc.d script_name defaults
+
 Logging
 -------
 
