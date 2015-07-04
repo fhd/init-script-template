@@ -20,20 +20,21 @@ Now set the following three variables in the script:
 
 The working directory of your process.
 
-### user ###
-
-The user that should execute the command.
-
 ### cmd ###
 
 The command line to start the process.
+
+### user ###
+
+The user that should execute the command (optional).
+If not set, the command will be called as root (via `sudo ...`).
 
 Here's an example for an app called
 [algorithms](http://algorithms.ubercode.de):
 
     dir="/var/apps/algorithms"
-    user="node"
     cmd="node server.js"
+    user="node"
 
 Script usage
 ------------
