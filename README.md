@@ -4,7 +4,7 @@ System V init script template
 A simple template for init scripts that provide the start, stop,
 restart and status commands.
 
-Handy for [Node.js](http://http://nodejs.org/) apps and everything
+Handy for [Node.js](http://nodejs.org) apps and everything
 else that runs itself.
 
 Getting started
