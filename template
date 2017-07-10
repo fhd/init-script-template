@@ -9,9 +9,9 @@
 # Description:       Enable service provided by daemon.
 ### END INIT INFO
 
-dir="/home/debian"
-cmd="python3 $dir/script"
-user="debian"
+dir=""
+cmd=""
+user=""
 
 name=`basename $0`
 pid_file="/var/run/$name.pid"
