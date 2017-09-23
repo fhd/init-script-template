@@ -11,6 +11,7 @@
 
 dir=""
 cmd=""
+rconf_cmd=""
 user=""
 
 name=`basename $0`
@@ -81,6 +82,25 @@ case "$1" in
         exit 1
     fi
     $0 start
+    ;;
+    force-reload)
+    if [ ! -z "$rconf_cmd" ]; then
+        if [ -z "$user" ]; then
+            sudo $rconf_cmd >> "$stdout_log" 2>> "$stderr_log" &
+        else
+            sudo -u "$user" $rconf_cmd >> "$stdout_log" 2>> "$stderr_log" &
+        fi
+        exit 0
+    else
+        if is_running; then
+             echo "No reload command found... restarting."
+             $0 stop
+             $0 start
+             exit 0
+        fi
+    fi
+    echo "Not running... so not reloaded."
+    exit 1
     ;;
     status)
     if is_running; then
