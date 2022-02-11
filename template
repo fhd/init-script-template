@@ -13,7 +13,7 @@ dir=""
 cmd=""
 user=""
 
-name=`basename $0`
+name=`basename $(readlink -f $0)`
 pid_file="/var/run/$name.pid"
 stdout_log="/var/log/$name.log"
 stderr_log="/var/log/$name.err"
@@ -24,6 +24,10 @@ get_pid() {
 
 is_running() {
     [ -f "$pid_file" ] && ps -p `get_pid` > /dev/null 2>&1
+}
+
+kill_process() {
+    kill -- -$(ps -o pgid= `get_pid` | grep -o [0-9]*)
 }
 
 case "$1" in
@@ -48,7 +52,7 @@ case "$1" in
     stop)
     if is_running; then
         echo -n "Stopping $name.."
-        kill `get_pid`
+        kill_process
         for i in 1 2 3 4 5 6 7 8 9 10
         # for i in `seq 10`
         do
